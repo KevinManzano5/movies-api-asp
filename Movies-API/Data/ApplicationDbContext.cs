@@ -7,6 +7,6 @@ namespace Movies_API.Data
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
-        public DbSet<Category> Category { get; set; }
+        public DbSet<Category> Categories { get; set; }
     }
 }

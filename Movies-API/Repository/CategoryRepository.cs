@@ -15,40 +15,40 @@ namespace Movies_API.Repository
 
         public bool CategoryExists(int CategoryId)
         {
-            return _db.Category.Any(category => category.Id == CategoryId);
+            return _db.Categories.Any(category => category.Id == CategoryId);
         }
 
         public bool CategoryExists(string Name)
         {
-            bool value = _db.Category.Any(category => category.Name.ToLower().Trim() == Name.ToLower().Trim());
+            bool value = _db.Categories.Any(category => category.Name.ToLower().Trim() == Name.ToLower().Trim());
 
             return value;
         }
 
         public bool CreateCategory(Category category)
         {
-            category.CreatedAt = DateTime.Now;
+            category.CreatedAt = DateTime.UtcNow;
 
-            _db.Category.Add(category);
+            _db.Categories.Add(category);
 
             return Save();
         }
 
         public bool DeleteCategory(Category category)
         {
-            _db.Category.Remove(category);
+            _db.Categories.Remove(category);
 
             return Save();
         }
 
         public ICollection<Category> GetCategories()
         {
-            return _db.Category.OrderBy(category => category.Name).ToList();
+            return _db.Categories.OrderBy(category => category.Name).ToList();
         }
 
         public Category GetCategory(int CategoryId)
         {
-            return _db.Category.FirstOrDefault(category => category.Id == CategoryId);
+            return _db.Categories.FirstOrDefault(category => category.Id == CategoryId);
         }
 
         public bool Save()
@@ -58,11 +58,11 @@ namespace Movies_API.Repository
 
         public bool UpdateCategory(Category category)
         {
-            category.CreatedAt = DateTime.Now;
+            category.CreatedAt = DateTime.UtcNow;
 
-            _db.Category.Update(category);
+            _db.Categories.Update(category);
 
-            return true;
+            return Save();
         }
     }
 }
