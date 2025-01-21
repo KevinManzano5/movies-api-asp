@@ -6,7 +6,7 @@ using Movies_API.Repository.IRepository;
 
 namespace Movies_API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/categories")]
     [ApiController]
     public class CategoriesController : ControllerBase
     {
