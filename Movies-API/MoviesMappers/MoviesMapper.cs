@@ -12,6 +12,8 @@ namespace Movies_API.MoviesMapper
             CreateMap<Category, CreateCategoryDto>().ReverseMap();
             CreateMap<Movie, MovieDto>().ReverseMap();
             CreateMap<Movie, CreateMovieDto>().ReverseMap();
+            CreateMap<User, CreateUserDto>().ReverseMap();
+            CreateMap<User, UserDto>().ReverseMap();
         }
     }
 }
